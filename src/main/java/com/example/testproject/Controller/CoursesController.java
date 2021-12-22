@@ -19,9 +19,18 @@ public class CoursesController {
         return coursesService.getInfo(id);
     }
 
-    @PostMapping("/update/{id}")
-    public void updateInfo(@PathVariable int id, @RequestBody CoursesDTORequest coursesDTORequest){
-         coursesService.update(id, coursesDTORequest);
+    @GetMapping("/delete/{id}")
+    public void delete(@PathVariable int id){
+        coursesService.delete(id);
     }
 
+    @PostMapping("/update/{id}")
+    public void updateInfo(@PathVariable int id, @RequestBody CoursesDTORequest coursesDTORequest){
+        coursesService.update(id, coursesDTORequest);
+    }
+
+    @PostMapping("/add")
+    public void addNew(@RequestBody CoursesDTORequest coursesDTORequest){
+        coursesService.addNew(coursesDTORequest);
+    }
 }

@@ -14,4 +14,8 @@ import org.springframework.stereotype.Component;
 public class PersonalInfoDTORequest {
 
     private String email;
+    private String address;
+    private int age;
+    private String telephoneNumber;
+
 }

@@ -12,6 +12,13 @@ public class LessonsMapperRequest {
     public Lessons mapToDTO(LessonsDTORequest lessonsDTORequest) {
         Lessons lessons = new Lessons();
         lessons.setName(lessonsDTORequest.getName());
+        lessons.setDate(lessonsDTORequest.getDate());
+        lessons.setTime(lessonsDTORequest.getTime());
+        lessons.setClassRoom(lessonsDTORequest.getClassRoom());
+        lessons.setTeacher(lessonsDTORequest.getTeacher());
+        lessons.setLessonsType(lessonsDTORequest.getLessonsType());
         return lessons;
     }
+
+
 }

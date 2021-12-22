@@ -12,6 +12,8 @@ public class GroupsMapperRequest {
     public Groups mapToDTO(GroupsDTORequest groupsDTORequest) {
         Groups groups = new Groups();
         groups.setName(groupsDTORequest.getName());
+        groups.setCourses(groupsDTORequest.getCourse());
+        groups.setLessons(groupsDTORequest.getLessons());
         return groups;
     }
 }

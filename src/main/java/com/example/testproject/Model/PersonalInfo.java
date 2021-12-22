@@ -26,7 +26,7 @@ public class PersonalInfo {
     private String email;
 
     @Column(name = "adress")
-    private String adres;
+    private String address;
 
     @Column(name = "age")
     private int age;
@@ -34,13 +34,13 @@ public class PersonalInfo {
     @Column(name = "telephone_number")
     private String telephoneNumber;
 
-//    @OneToOne(mappedBy = "personalInfo")
-//    @JsonIgnoreProperties("personalInfo")
-//    private Students students;
-//
-//    @OneToOne(mappedBy = "personalInfo")
-//    @JsonIgnoreProperties("personalInfo")
-//    private Teacher teacher;
+    @OneToOne(mappedBy = "personalInfo")
+    @JsonIgnoreProperties("personalInfo")
+    private Students students;
+
+    @OneToOne(mappedBy = "personalInfo")
+    @JsonIgnoreProperties("personalInfo")
+    private Teacher teacher;
 
     @Override
     public boolean equals(Object o) {

@@ -3,6 +3,7 @@ package com.example.testproject.Service;
 import com.example.testproject.DTO.Request.StudentsDTORequest;
 import com.example.testproject.DTO.Request.TeacherDTORequest;
 import com.example.testproject.DTO.Response.TeacherDTOResponse;
+import com.example.testproject.Mapper.Request.TeacherMapperRequest;
 import com.example.testproject.Mapper.Response.TeacherMapperResponse;
 import com.example.testproject.Model.Students;
 import com.example.testproject.Model.Teacher;
@@ -21,6 +22,9 @@ public class TeacherService {
     @Autowired
     TeacherMapperResponse teacherMapper;
 
+    @Autowired
+    TeacherMapperRequest teacherMapperRequest;
+
     public TeacherDTOResponse getInfo(int id){
         Optional<Teacher> byId = teacherRepository.findById(id);
         return teacherMapper.mapToDTO(byId.get());
@@ -30,5 +34,14 @@ public class TeacherService {
         Optional<Teacher> byId = teacherRepository.findById(id);
         byId.get().setLastName(teacherDTORequest.getLastName());
         teacherRepository.save(byId.get());
+    }
+
+    public void delete(int id){
+        teacherRepository.deleteById(id);
+    }
+
+    public void addNew(TeacherDTORequest teacherDTORequest){
+        Teacher teacher = teacherMapperRequest.mapToDTO(teacherDTORequest);
+        teacherRepository.save(teacher);
     }
 }

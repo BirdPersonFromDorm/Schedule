@@ -11,7 +11,10 @@ public class StudentsMapperRequest {
 
     public Students mapToDTO(StudentsDTORequest studentsDTORequest) {
         Students students = new Students();
+        students.setFirstName(studentsDTORequest.getFirstName());
         students.setLastName(studentsDTORequest.getLastName());
+        students.setGroups(studentsDTORequest.getGroups());
+        students.setPersonalInfo(studentsDTORequest.getPersonalInfo());
         return students;
     }
 }

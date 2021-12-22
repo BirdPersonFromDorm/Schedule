@@ -26,4 +26,14 @@ public class TeacherController {
                            @RequestBody TeacherDTORequest teacherDTORequest){
         teacherService.update(id, teacherDTORequest);
     }
+
+    @GetMapping("/delete/{id}")
+    public void delete(@PathVariable int id){
+        teacherService.delete(id);
+    }
+
+    @PostMapping("/add")
+    public void add(@RequestBody TeacherDTORequest teacherDTORequest){
+        teacherService.addNew(teacherDTORequest);
+    }
 }

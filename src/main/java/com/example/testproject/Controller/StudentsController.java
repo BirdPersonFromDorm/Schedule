@@ -19,7 +19,6 @@ public class StudentsController {
 
     @GetMapping("/{id}")
     public StudentsDTOResponse getInfo(@PathVariable int id){
-
         return studentsService.getInfo(id);
     }
 
@@ -38,6 +37,16 @@ public class StudentsController {
     public void updateInfo(@PathVariable int id,
                            @RequestBody StudentsDTORequest studentsDTORequest){
         studentsService.update(id, studentsDTORequest);
+    }
+
+    @GetMapping("/delete/{id}")
+    public void delete(@PathVariable int id){
+        studentsService.delete(id);
+    }
+
+    @PostMapping("/add")
+    public void add(@RequestBody StudentsDTORequest studentsDTORequest){
+        studentsService.addNew(studentsDTORequest);
     }
 
 }

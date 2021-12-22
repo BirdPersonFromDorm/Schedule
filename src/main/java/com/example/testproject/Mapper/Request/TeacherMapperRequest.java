@@ -11,7 +11,9 @@ public class TeacherMapperRequest {
 
     public Teacher mapToDTO(TeacherDTORequest teacherDTORequest) {
         Teacher teacher = new Teacher();
+        teacher.setFirstName(teacherDTORequest.getFirstName());
         teacher.setLastName(teacherDTORequest.getLastName());
+        teacher.setPersonalInfo(teacherDTORequest.getPersonalInfo());
         return teacher;
     }
 }

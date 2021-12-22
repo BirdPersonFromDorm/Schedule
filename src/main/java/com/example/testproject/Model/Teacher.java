@@ -29,7 +29,7 @@ public class Teacher {
     @Column(name = "last_name")
     private String lastName;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne()
     @JoinColumn(name = "personal_info", referencedColumnName = "personal_info_id")
     @JsonIgnoreProperties("teacher")
     private PersonalInfo personalInfo;

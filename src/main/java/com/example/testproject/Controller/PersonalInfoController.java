@@ -1,5 +1,6 @@
 package com.example.testproject.Controller;
 
+import com.example.testproject.DTO.Request.LessonsTypeDTORequest;
 import com.example.testproject.DTO.Request.PersonalInfoDTORequest;
 import com.example.testproject.Service.PersonalInfoService;
 import com.example.testproject.Model.PersonalInfo;
@@ -23,5 +24,15 @@ public class PersonalInfoController {
     public void updateInfo(@PathVariable int id,
                            @RequestBody PersonalInfoDTORequest personalInfoDTORequest){
         personalInfoService.update(id, personalInfoDTORequest);
+    }
+
+    @GetMapping("/delete/{id}")
+    public void delete(@PathVariable int id){
+        personalInfoService.delete(id);
+    }
+
+    @PostMapping("/add")
+    public void add(@RequestBody PersonalInfoDTORequest personalInfoDTORequest){
+        personalInfoService.addNew(personalInfoDTORequest);
     }
 }

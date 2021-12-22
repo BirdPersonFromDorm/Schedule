@@ -4,6 +4,7 @@ import com.example.testproject.DTO.Request.CoursesDTORequest;
 import com.example.testproject.DTO.Request.GroupsDTORequest;
 import com.example.testproject.DTO.Request.LessonsDTORequest;
 import com.example.testproject.DTO.Response.LessonsDTOResponse;
+import com.example.testproject.Mapper.Request.LessonsMapperRequest;
 import com.example.testproject.Mapper.Response.LessonsMapperResponse;
 import com.example.testproject.Model.Courses;
 import com.example.testproject.Model.Groups;
@@ -23,6 +24,9 @@ public class LessonsService {
     @Autowired
     LessonsMapperResponse lessonsMapper;
 
+    @Autowired
+    LessonsMapperRequest lessonsMapperRequest;
+
     public LessonsDTOResponse getInfo(int id){
         Optional<Lessons> byId = lessonsRepository.findById(id);
         return lessonsMapper.mapToDTO(byId.get());
@@ -32,6 +36,15 @@ public class LessonsService {
         Optional<Lessons> byId = lessonsRepository.findById(id);
         byId.get().setName(lessonsDTORequest.getName());
         lessonsRepository.save(byId.get());
+    }
+
+    public void delete(int id){
+        lessonsRepository.deleteById(id);
+    }
+
+    public void addNew(LessonsDTORequest lessonsDTORequest){
+        Lessons lessons = lessonsMapperRequest.mapToDTO(lessonsDTORequest);
+        lessonsRepository.save(lessons);
     }
 
 }
