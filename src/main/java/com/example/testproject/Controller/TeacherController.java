@@ -21,13 +21,13 @@ public class TeacherController {
         return teacherService.getInfo(id);
     }
 
-    @PostMapping("/update/{id}")
+    @PutMapping("/update/{id}")
     public void updateInfo(@PathVariable int id,
                            @RequestBody TeacherDTORequest teacherDTORequest){
         teacherService.update(id, teacherDTORequest);
     }
 
-    @GetMapping("/delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public void delete(@PathVariable int id){
         teacherService.delete(id);
     }

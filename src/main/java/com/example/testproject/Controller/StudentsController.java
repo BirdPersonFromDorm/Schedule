@@ -33,13 +33,13 @@ public class StudentsController {
         return studentsService.getLessonsByStudentsAndDate(lastName, date);
     }
 
-    @PostMapping("/update/{id}")
+    @PutMapping("/update/{id}")
     public void updateInfo(@PathVariable int id,
                            @RequestBody StudentsDTORequest studentsDTORequest){
         studentsService.update(id, studentsDTORequest);
     }
 
-    @GetMapping("/delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public void delete(@PathVariable int id){
         studentsService.delete(id);
     }

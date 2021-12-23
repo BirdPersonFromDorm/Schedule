@@ -20,13 +20,13 @@ public class LessonsController {
         return lessonsService.getInfo(id);
     }
 
-    @PostMapping("/update/{id}")
+    @PutMapping("/update/{id}")
     public void updateInfo(@PathVariable int id,
                            @RequestBody LessonsDTORequest lessonsDTORequest){
         lessonsService.update(id, lessonsDTORequest);
     }
 
-    @GetMapping("/delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public void delete(@PathVariable int id){
         lessonsService.delete(id);
     }

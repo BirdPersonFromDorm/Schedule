@@ -28,12 +28,12 @@ public class GroupsController {
         return groupsService.getByName(name);
     }
 
-    @GetMapping("/delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public void delete(@PathVariable int id){
         groupsService.delete(id);
     }
 
-    @PostMapping("/update/{id}")
+    @PutMapping("/update/{id}")
     public void updateInfo(@PathVariable int id, @RequestBody GroupsDTORequest groupsDTORequest){
         groupsService.update(id, groupsDTORequest);
     }

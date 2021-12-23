@@ -19,12 +19,12 @@ public class CoursesController {
         return coursesService.getInfo(id);
     }
 
-    @GetMapping("/delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public void delete(@PathVariable int id){
         coursesService.delete(id);
     }
 
-    @PostMapping("/update/{id}")
+    @PutMapping("/update/{id}")
     public void updateInfo(@PathVariable int id, @RequestBody CoursesDTORequest coursesDTORequest){
         coursesService.update(id, coursesDTORequest);
     }

@@ -2,6 +2,7 @@ package com.example.testproject.Controller;
 
 import com.example.testproject.DTO.Request.LessonsTypeDTORequest;
 import com.example.testproject.DTO.Request.PersonalInfoDTORequest;
+import com.example.testproject.DTO.Response.PersonalInfoDTOResponse;
 import com.example.testproject.Service.PersonalInfoService;
 import com.example.testproject.Model.PersonalInfo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,18 +16,18 @@ public class PersonalInfoController {
     PersonalInfoService personalInfoService;
 
     @GetMapping("/{id}")
-    public PersonalInfo getInfo(@PathVariable int id){
+    public PersonalInfoDTOResponse getInfo(@PathVariable int id){
 
         return personalInfoService.getInfo(id);
     }
 
-    @PostMapping("/update/{id}")
+    @PutMapping("/update/{id}")
     public void updateInfo(@PathVariable int id,
                            @RequestBody PersonalInfoDTORequest personalInfoDTORequest){
         personalInfoService.update(id, personalInfoDTORequest);
     }
 
-    @GetMapping("/delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public void delete(@PathVariable int id){
         personalInfoService.delete(id);
     }

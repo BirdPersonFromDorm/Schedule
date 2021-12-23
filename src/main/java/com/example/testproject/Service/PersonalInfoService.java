@@ -2,7 +2,9 @@ package com.example.testproject.Service;
 
 import com.example.testproject.DTO.Request.LessonsTypeDTORequest;
 import com.example.testproject.DTO.Request.PersonalInfoDTORequest;
+import com.example.testproject.DTO.Response.PersonalInfoDTOResponse;
 import com.example.testproject.Mapper.Request.PersonalInfoMapperRequest;
+import com.example.testproject.Mapper.Response.PersonalInfoMapperResponse;
 import com.example.testproject.Model.LessonsType;
 import com.example.testproject.Model.PersonalInfo;
 import com.example.testproject.Repository.PersonalInfoRepository;
@@ -18,13 +20,15 @@ public class PersonalInfoService {
     PersonalInfoRepository personalInfoRepository;
 
     @Autowired
+    PersonalInfoMapperResponse personalInfoMapperResponse;
+
+    @Autowired
     PersonalInfoMapperRequest personalInfoMapperRequest;
 
 
-    public PersonalInfo getInfo(int id){
+    public PersonalInfoDTOResponse getInfo(int id){
         Optional<PersonalInfo> byId = personalInfoRepository.findById(id);
-        PersonalInfo personalInfo = byId.get();
-        return personalInfo;
+        return personalInfoMapperResponse.mapToDTO(byId.get());
     }
 
     public void update(int id, PersonalInfoDTORequest personalInfoDTORequest){

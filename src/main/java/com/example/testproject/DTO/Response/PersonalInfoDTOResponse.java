@@ -20,7 +20,7 @@ public class PersonalInfoDTOResponse {
 
     private String personalInfoAdres;
 
-    private String personalInfoAge;
+    private int personalInfoAge;
 
     private String personalInfoTelephoneNumber;
 }
